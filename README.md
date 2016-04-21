@@ -146,9 +146,9 @@ Rules are closely related with the type of `value`. Now, let's go through rules 
 
 ### Rules for Number
 
-#### `name|[+-]step: value`
+#### `name|[+-]step: seed`
 
-Examples:
+Base on `seed`, increase/decrease by `step` on every compiling, examples:
 
 ```js
 {
