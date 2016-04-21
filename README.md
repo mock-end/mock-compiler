@@ -43,6 +43,80 @@ var result = compiler.compile(template);
 ```
 
 
+## API
+
+
+### compile(template[, data, helpers])
+
+Compile the given `template` into random result, with optional `data` and `helpers`.
+ 
+- `template` - Data template with [special syntax].
+- `data` - Optional data that can be used in placeholders.
+- `helpers` - Optional runtime placeholders, which are only available in this compiling.
+
+
+### registerPlaceholder(name, fn[, overwrite])
+
+Register custom placeholders to the compiler, these placeholders are shared in all compiling:
+
+```js
+// register single placeholder
+compiler.registerPlaceholder('getData', function(key) {
+    var data = this.data || {};
+    return data[key];
+});
+
+// register placeholders
+compiler.registerPlaceholder({
+    add: function (a) {
+        return this.data.seed + a;
+    },
+    sub: function (a) {
+        return this.data.seed - a;
+    },
+    rand: function () {
+        // use the internal placeholders
+        return this.int(1, 10);
+    }
+});
+```
+
+Use the placeholders:
+
+```js
+var template = {
+    aaa: '@getData("foo")',
+    bbb: '@add(2)',
+    ccc: '@sub(2)',
+    ddd: '@rand()',
+    eee: '@rand', // brackets can be omitted when these is no any argument.
+    fff: '@add(@sub(2))',   // nested placeholders
+    ggg: '@test("Runtime")' // use runtime placeholder
+};
+var result = compiler.compile(template, { foo: 'mock loves you!!', seed: 10 }, {
+    // runtime placeholder
+    test: function (name) {
+        return name + ' is cool.'
+    }
+});
+// =>
+//{
+//    aaa: 'mock loves you!!'
+//    bbb: 12
+//    ccc: 8
+//    ddd: 6
+//    eee: 9
+//    fff: 18
+//    ggg: 'Runtime is cool.'
+//}
+
+```
+
+## Template Syntax
+
+
+## Internal Placeholders
+
 
 ## Contributing
 
