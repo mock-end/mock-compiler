@@ -17,14 +17,29 @@ $ npm install --save mock-compiler
 ## Usage
 
 ```js
-var random = require('mock-compiler');
+var compiler = require('mock-compiler');
 
-random.int();
-// => 9527
+var template = {
+    'number|1-10': 1,
+    'bool|1-10'  : true,
+    'string|2'   : 'foobar',
+    'array|-2'   : [1, 2, 3, 4, 5],
+    'object|2'   : { a: 1, b: 2, c: 3, d: 4 }
+    'function'   : function () { return 'mock' },
+    'placeholder': '@int(1, 10)'
+};
 
-random.char();
-// => 'G'
-
+var result = compiler.compile(template);
+// => 
+// {
+//   number: 6,
+//   bool  : false,
+//   string: 'foobarfoobar',
+//   array : [3, 5],
+//   object: { b: 2, c: 3 }
+//   function   : 'mock',
+//   placeholder: 3
+// }
 ```
 
 
