@@ -1,0 +1,63 @@
+{
+  "name": "mock-compiler",
+  "version": "1.0.0",
+  "description": "Compile template to mock date.",
+  "main": "./lib/index.js",
+  "scripts": {
+    "lint": "jshint ./lib/**/*.js",
+    "pretest": "npm run lint",
+    "test": "mocha -R spec",
+    "test:cov": "rm -rf ./test/coverage && istanbul cover _mocha --dir ./test/coverage -- -R spec",
+    "test:rpt": "npm run test:cov && coveralls < ./test/coverage/lcov.info",
+    "watch": "onchange 'lib/**/*.js' 'test/**/*.js' -e 'test/coverage/**/*.js' -- npm test",
+    "prepublish": "npm test"
+  },
+  "keywords": [
+    "compile",
+    "compiler",
+    "mock",
+    "template",
+    "json",
+    "entity",
+    "entity",
+    "generate",
+    "generator",
+    "gen",
+    "random",
+    "randomly",
+    "rand",
+    "sampling"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "bubkoo",
+    "email": "bubkoo.wy@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mock-end/mock-compiler.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mock-end/mock-compiler/issues"
+  },
+  "homepage": "https://github.com/mock-end/mock-compiler#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "coveralls": "^2.11.9",
+    "istanbul": "^0.4.2",
+    "jshint": "^2.9.1",
+    "mocha": "^2.4.5",
+    "onchange": "^2.4.0"
+  },
+  "dependencies": {
+    "clamp": "^1.0.1",
+    "has-own": "^1.0.0",
+    "is-absolute": "^0.2.5",
+    "is-array": "^1.0.1",
+    "is-function": "^1.0.1",
+    "is-object": "^1.0.1",
+    "object-assign": "^4.0.1",
+    "random-utility": "1.0.1",
+    "to-str": "^1.0.0"
+  }
+}
