@@ -148,7 +148,7 @@ Rules are closely related with the type of `value`. Now, let's go through rules 
 
 #### `name|[+-]step: seed`
 
-Base on `seed`, increase/decrease by `step` on every compiling, examples:
+Base on `seed`, increase/decrease by `step` on every compiling:
 
 ```js
 {
@@ -159,6 +159,16 @@ Base on `seed`, increase/decrease by `step` on every compiling, examples:
 ```
 
 #### `name|number: value`
+
+Randomly generate a number between `0` and `number`, `value` indicate whether the result is an **Integer** or **Float** and it's precision:
+
+```js
+{
+    'num1|99' : 1,    // => 23
+    'num2|99' : 1.23, // => 57.82
+    'num2|-99': 1     // => -73
+}
+```
 
 #### `name|min-max: value`
 
