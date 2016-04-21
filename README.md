@@ -20,6 +20,7 @@ $ npm install --save mock-compiler
 var compiler = require('mock-compiler');
 
 var template = {
+    raw : 'Mock loves you',
     'number|1-10': 1,
     'bool|1-10'  : true,
     'string|2'   : 'foobar',
@@ -32,6 +33,7 @@ var template = {
 var result = compiler.compile(template);
 // => 
 // {
+//   raw : 'Mock loves you',
 //   number: 6,
 //   bool  : false,
 //   string: 'foobarfoobar',
@@ -89,7 +91,7 @@ var template = {
     bbb: '@add(2)',
     ccc: '@sub(2)',
     ddd: '@rand()',
-    eee: '@rand', // brackets can be omitted when these is no any argument.
+    eee: '@rand', // brackets can be omitted when do not take any arguments.
     fff: '@add(@sub(2))',   // nested placeholders
     ggg: '@test("Runtime")' // use runtime placeholder
 };
@@ -114,9 +116,22 @@ var result = compiler.compile(template, { foo: 'mock loves you!!', seed: 10 }, {
 
 ## Template Syntax
 
+Every key-value in the template can be composed of three parts: 
+
+```js
+'name|rule': value
+```
+
+- `key` - the key.
+- `rule` - optional, `key` and `rule` are separated by `|`.
+- `value` - indicate the value, value type or initial value.
 
 ## Placeholders
 
+
+### Internal Placeholders
+
+### Nested 
 
 ## Contributing
 
