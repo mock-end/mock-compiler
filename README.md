@@ -50,8 +50,8 @@ var result = compiler.compile(template);
 
 Compile the given `template` into random result, with optional `data` and `helpers`.
  
-- `template` - Data template with [special syntax].
-- `data` - Optional data that can be used in placeholders.
+- `template` - Data template with [special syntax](#template-syntax).
+- `data` - Optional data that can be used in [placeholders](#Placeholders).
 - `helpers` - Optional runtime placeholders, which are only available in this compiling.
 
 
@@ -115,7 +115,7 @@ var result = compiler.compile(template, { foo: 'mock loves you!!', seed: 10 }, {
 ## Template Syntax
 
 
-## Internal Placeholders
+## Placeholders
 
 
 ## Contributing
