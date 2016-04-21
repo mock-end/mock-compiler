@@ -56,6 +56,7 @@
     "is-array": "^1.0.1",
     "is-function": "^1.0.1",
     "is-object": "^1.0.1",
+    "js-yaml": "^3.6.0",
     "object-assign": "^4.0.1",
     "random-utility": "1.0.1",
     "to-str": "^1.0.0"
