@@ -7,6 +7,22 @@
 [![build:?](https://img.shields.io/travis/mock-end/mock-compiler/master.svg?style=flat-square)](https://travis-ci.org/mock-end/mock-compiler)
 [![coverage:?](https://img.shields.io/coveralls/mock-end/mock-compiler/master.svg?style=flat-square)](https://coveralls.io/github/mock-end/mock-compiler)
 
+## Table of Content
+
+- [Install](#install)
+- [Usage](#usage)
+- [API](#api)
+  - [compile(template[, data, helpers])](#compiletemplate-data-helpers)
+  - [registerPlaceholder(name, fn[, overwrite])](#registerplaceholdername-fn-overwrite)
+- [Template Syntax](#template-syntax)
+  - [Rules for Number](#rules-for-number)
+  - [Rules for Boolean](#rules-for-boolean)
+  - [Rules for Array](#rules-for-array)
+  - [Rules for Object](#rules-for-object)
+  - [Rules for Function](#rules-for-function)
+  - [Rules for String](#rules-for-string)
+- [Placeholders](#placeholders)
+- [Contributing](#contributing)
 
 ## Install
 
@@ -64,8 +80,7 @@ Register custom placeholders to the compiler, these placeholders are shared in a
 ```js
 // register single placeholder
 compiler.registerPlaceholder('getData', function(key) {
-    var data = this.data || {};
-    return data[key];
+    return this.data[key];
 });
 
 // register placeholders
@@ -122,16 +137,30 @@ Every key-value in the template can be composed of three parts:
 'name|rule': value
 ```
 
-- `key` - the key.
-- `rule` - optional, `key` and `rule` are separated by `|`.
+- `key` - name of the key.
+- `rule` - optional, `key` and `rule` should be separated by `|`.
 - `value` - indicate the value, value type or initial value.
+
+### Rules for Number
+
+### Rules for Boolean
+
+### Rules for Array
+
+### Rules for Object
+
+### Rules for Function
+
+### Rules for String
+
 
 ## Placeholders
 
-
 ### Internal Placeholders
 
-### Nested 
+### `this` in the Placeholder
+
+### Nested Usage
 
 ## Contributing
 
