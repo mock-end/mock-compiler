@@ -141,7 +141,29 @@ Every key-value in the template can be composed of three parts:
 - `rule` - optional, `key` and `rule` should be separated by `|`.
 - `value` - indicate the value, value type or initial value.
 
+Rules are closely related with the type of `value`. Now, let's go through rules with a variety of value types:
+
+
 ### Rules for Number
+
+#### `name|[+-]step: value`
+
+Examples:
+
+```js
+{
+    'num1|+1'  : 1,
+    'num2|-1'  : 1,
+    'num3|+1.5': 3
+}
+```
+
+#### `name|number: value`
+
+#### `name|min-max: value`
+
+#### `name|min-max.min-max: value`
+
 
 ### Rules for Boolean
 
@@ -158,7 +180,7 @@ Every key-value in the template can be composed of three parts:
 
 ### Internal Placeholders
 
-### `this` in the Placeholder
+### About `this`
 
 ### Nested Usage
 
